@@ -291,6 +291,10 @@ summarize_build() {
 
 install_plugin "$BP_DIR" "$BUILD_DIR"
 
+echo "INSTALLING BSDTAR"
+apt-get install -y --no-install-recommends bsdtar
+export tar='bsdtar'
+
 header "Build succeeded!" | output "$LOG_FILE"
 mcount "compile"
 summarize_build | output "$LOG_FILE"
